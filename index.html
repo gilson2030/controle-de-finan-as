@@ -5,6 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Rolli Shop • Controle Financeiro</title>
   <link rel="stylesheet" href="style.css">
+
+  <!-- Firebase & ApexCharts CDN -->
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
 </head>
 <body>
   <header>
@@ -33,6 +38,11 @@
           <h3>💸 Total de Custos</h3>
           <span id="totalCustos">R$ 0,00</span>
         </div>
+      </div>
+      <!-- Gráfico -->
+      <div class="grafico-box">
+        <h4>Gráfico de Vendas x Despesas (Mensal)</h4>
+        <div id="graficoVendas"></div>
       </div>
       <div class="mais-lucrativos">
         <h4>Produtos Mais Lucrativos</h4>
@@ -83,3 +93,4 @@
   <script src="script.js"></script>
 </body>
 </html>
+
