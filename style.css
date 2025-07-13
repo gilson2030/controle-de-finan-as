@@ -29,20 +29,42 @@ header {
 nav {
   margin-top: 10px;
 }
+nav {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: nowrap;
+}
+
 nav button {
   background: var(--amarelo);
   color: var(--roxo);
   border: none;
-  border-radius: 8px;
-  margin: 0 6px;
-  padding: 10px 22px;
+  border-radius: 16px;
+  min-width: 110px;
+  padding: 10px 0;
   font-weight: bold;
   cursor: pointer;
   font-size: 1em;
   transition: background 0.2s;
+  box-shadow: 0 2px 8px #0001;
+  white-space: nowrap;
 }
+
 nav button:hover {
   background: #ffe688;
+}
+
+@media (max-width: 500px) {
+  nav {
+    gap: 6px;
+  }
+  nav button {
+    min-width: 90px;
+    padding: 9px 0;
+    font-size: 0.98em;
+  }
 }
 main {
   max-width: 540px;
