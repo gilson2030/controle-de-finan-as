@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Rolli Shop • Controle Financeiro</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <img src="logo-rolli.png" alt="Logo Rolli Shop" class="logo">
+    <h1>Controle Financeiro Rolli Shop</h1>
+    <nav>
+      <button onclick="mostrarTela('dashboard')">Resumo</button>
+      <button onclick="mostrarTela('transacoes')">Transações</button>
+      <button onclick="mostrarTela('dicas')">Dicas</button>
+    </nav>
+  </header>
+  <main>
+    <!-- DASHBOARD -->
+    <section id="dashboard" class="tela">
+      <h2>Resumo Financeiro</h2>
+      <div class="painel">
+        <div>
+          <h3>💰 Lucro Líquido</h3>
+          <span id="lucroLiquido">R$ 0,00</span>
+        </div>
+        <div>
+          <h3>🛒 Total de Vendas</h3>
+          <span id="totalVendas">R$ 0,00</span>
+        </div>
+        <div>
+          <h3>💸 Total de Custos</h3>
+          <span id="totalCustos">R$ 0,00</span>
+        </div>
+      </div>
+      <div class="mais-lucrativos">
+        <h4>Produtos Mais Lucrativos</h4>
+        <ul id="produtosLucrativos"></ul>
+      </div>
+    </section>
+    <!-- TRANSAÇÕES -->
+    <section id="transacoes" class="tela" style="display:none">
+      <h2>Nova Transação</h2>
+      <form id="formTransacao">
+        <input type="text" id="produto" placeholder="Produto/Despesa" required>
+        <input type="number" id="valor" placeholder="Valor (R$)" required step="0.01">
+        <select id="tipo">
+          <option value="venda">Venda</option>
+          <option value="despesa">Despesa</option>
+        </select>
+        <button type="submit">Adicionar</button>
+      </form>
+      <h3>Histórico</h3>
+      <table id="tabelaTransacoes">
+        <thead>
+          <tr>
+            <th>Produto/Despesa</th>
+            <th>Tipo</th>
+            <th>Valor</th>
+            <th>Excluir</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </section>
+    <!-- DICAS E ESTRATÉGIAS -->
+    <section id="dicas" class="tela" style="display:none">
+      <h2>Estratégias Rockefeller para sua Loja</h2>
+      <ol class="dicas-lista">
+        <li><b>Controle total das finanças:</b> Registre cada venda e gasto. Analise seu lucro real e não misture dinheiro da loja com despesas pessoais.</li>
+        <li><b>Negocie com fornecedores:</b> Sempre busque preços e condições melhores, comprando em quantidade ou pagando à vista.</li>
+        <li><b>Reinvista em crescimento:</b> Separe parte do lucro para aumentar estoque, divulgar mais e lançar novidades.</li>
+        <li><b>Corte custos sem perder qualidade:</b> Troque embalagens caras por alternativas criativas, elimine produtos parados do estoque.</li>
+        <li><b>Tome decisões baseadas em dados:</b> Veja o que vende mais, ajuste seu foco e mude rápido quando perceber algo que não dá resultado.</li>
+      </ol>
+      <p class="frase-insp">"O segredo é controlar o dinheiro, nunca ser controlado por ele." — Rockefeller</p>
+    </section>
+  </main>
+  <footer>
+    Rolli Shop © 2025 • App inspirado em John D. Rockefeller
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>
