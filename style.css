@@ -1,0 +1,174 @@
+:root {
+  --roxo: #7c39e6;
+  --amarelo: #ffc233;
+  --cinza: #faf6f2;
+  --cinza2: #f0e8dd;
+  --texto: #232020;
+}
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: var(--amarelo);
+  color: var(--texto);
+}
+header {
+  background: var(--roxo);
+  color: #fff;
+  padding: 20px 10px 10px 10px;
+  text-align: center;
+  border-bottom: 4px solid var(--amarelo);
+}
+.logo {
+  max-width: 60px;
+  margin-bottom: 10px;
+}
+nav {
+  margin-top: 10px;
+}
+nav button {
+  background: var(--amarelo);
+  color: var(--roxo);
+  border: none;
+  border-radius: 4px;
+  margin: 0 4px;
+  padding: 8px 18px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+nav button:hover {
+  background: #ffe688;
+}
+main {
+  max-width: 520px;
+  margin: 30px auto 10px;
+  background: var(--cinza);
+  border-radius: 16px;
+  padding: 32px 20px;
+  box-shadow: 0 3px 18px #a481ff15;
+}
+h1, h2 {
+  margin-top: 0;
+  font-weight: 700;
+}
+.painel {
+  display: flex;
+  gap: 18px;
+  margin-bottom: 22px;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.painel div {
+  flex: 1;
+  background: var(--cinza2);
+  border-radius: 10px;
+  padding: 16px 10px;
+  box-shadow: 0 2px 6px #e5d1ff22;
+  text-align: center;
+}
+.painel h3 {
+  font-size: 1.1em;
+  margin: 0 0 8px 0;
+}
+.painel span {
+  font-size: 1.4em;
+  font-weight: bold;
+}
+.mais-lucrativos {
+  background: var(--cinza2);
+  border-radius: 10px;
+  padding: 12px;
+  margin-top: 8px;
+  box-shadow: 0 2px 6px #e5d1ff15;
+}
+.mais-lucrativos ul {
+  padding-left: 16px;
+  margin: 0;
+}
+form#formTransacao {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 22px;
+  flex-wrap: wrap;
+}
+form#formTransacao input,
+form#formTransacao select,
+form#formTransacao button {
+  padding: 7px 10px;
+  border-radius: 4px;
+  border: 1px solid var(--roxo);
+  font-size: 1em;
+}
+form#formTransacao button {
+  background: var(--roxo);
+  color: #fff;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+form#formTransacao button:hover {
+  background: #a481ff;
+}
+#tabelaTransacoes {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 1px 6px #e5d1ff11;
+  margin-bottom: 24px;
+}
+#tabelaTransacoes th, #tabelaTransacoes td {
+  padding: 8px 5px;
+  text-align: left;
+  border-bottom: 1px solid #e5d1ff33;
+}
+#tabelaTransacoes th {
+  background: var(--roxo);
+  color: #fff;
+  font-weight: 600;
+}
+#tabelaTransacoes td:last-child {
+  text-align: center;
+}
+#tabelaTransacoes button {
+  background: #ff8080;
+  border: none;
+  color: #fff;
+  border-radius: 4px;
+  padding: 3px 10px;
+  font-size: 1em;
+  cursor: pointer;
+}
+.dicas-lista {
+  padding-left: 22px;
+  margin-bottom: 18px;
+}
+.frase-insp {
+  font-style: italic;
+  background: var(--roxo);
+  color: #fff;
+  padding: 10px 16px;
+  border-radius: 8px;
+  margin: 18px 0 0 0;
+  text-align: center;
+  box-shadow: 0 2px 12px #a481ff33;
+}
+footer {
+  text-align: center;
+  color: var(--roxo);
+  background: var(--amarelo);
+  padding: 12px 0 10px 0;
+  font-size: 1em;
+  margin-top: 36px;
+  border-top: 2px solid var(--roxo);
+}
+@media (max-width: 700px) {
+  main {
+    padding: 12px 2vw;
+  }
+  .painel {
+    flex-direction: column;
+    gap: 12px;
+  }
+}
