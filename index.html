@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Rolli Shop • Controle Financeiro</title>
   <link rel="stylesheet" href="style.css">
-
   <!-- Firebase & ApexCharts CDN -->
   <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
@@ -39,14 +38,32 @@
           <span id="totalCustos">R$ 0,00</span>
         </div>
       </div>
-      <!-- Gráfico -->
-      <div class="grafico-box">
-        <h4>Gráfico de Vendas x Despesas (Mensal)</h4>
-        <div id="graficoVendas"></div>
+      <!-- FILTROS -->
+      <div class="filtros-box">
+        <h4>Filtrar por:</h4>
+        <label>
+          Data Inicial:
+          <input type="date" id="filtroDataInicio">
+        </label>
+        <label>
+          Data Final:
+          <input type="date" id="filtroDataFim">
+        </label>
+        <label>
+          Produto:
+          <input type="text" id="filtroProduto" placeholder="Ex: óculos">
+        </label>
+        <label>
+          Categoria:
+          <input type="text" id="filtroCategoria" placeholder="Ex: acessórios">
+        </label>
+        <button onclick="aplicarFiltros()">Aplicar Filtros</button>
+        <button onclick="limparFiltros()" class="limpar">Limpar</button>
       </div>
-      <div class="mais-lucrativos">
-        <h4>Produtos Mais Lucrativos</h4>
-        <ul id="produtosLucrativos"></ul>
+      <!-- Gráfico de Pizza -->
+      <div class="grafico-box">
+        <h4>Distribuição de Vendas por Produto</h4>
+        <div id="graficoPizza"></div>
       </div>
     </section>
     <!-- TRANSAÇÕES -->
@@ -54,6 +71,7 @@
       <h2>Nova Transação</h2>
       <form id="formTransacao">
         <input type="text" id="produto" placeholder="Produto/Despesa" required>
+        <input type="text" id="categoria" placeholder="Categoria (opcional)">
         <input type="number" id="valor" placeholder="Valor (R$)" required step="0.01">
         <select id="tipo">
           <option value="venda">Venda</option>
@@ -66,15 +84,30 @@
         <thead>
           <tr>
             <th>Produto/Despesa</th>
+            <th>Categoria</th>
             <th>Tipo</th>
             <th>Valor</th>
+            <th>Data</th>
             <th>Excluir</th>
           </tr>
         </thead>
         <tbody></tbody>
       </table>
     </section>
-    <!-- DICAS E ESTRATÉGIAS -->
+    <!-- CALCULADORA DE PREÇO DE VENDA -->
+    <section id="calculadora" class="tela" style="display:none">
+      <h2>Calculadora de Preço de Venda</h2>
+      <form id="formCalc">
+        <input type="number" id="calcCusto" placeholder="Custo do produto (R$)" step="0.01" required>
+        <input type="number" id="calcImposto" placeholder="Imposto (%)" step="0.01">
+        <input type="number" id="calcTaxa" placeholder="Taxa Marketplace (%)" step="0.01">
+        <input type="number" id="calcFrete" placeholder="Frete (R$)" step="0.01">
+        <input type="number" id="calcLucro" placeholder="Lucro desejado (%)" step="0.01" required>
+        <button type="submit">Calcular</button>
+      </form>
+      <div id="resultadoCalc" class="resultado-calc"></div>
+    </section>
+    <!-- DICAS -->
     <section id="dicas" class="tela" style="display:none">
       <h2>Estratégias Rockefeller para sua Loja</h2>
       <ol class="dicas-lista">
@@ -85,12 +118,14 @@
         <li><b>Tome decisões baseadas em dados:</b> Veja o que vende mais, ajuste seu foco e mude rápido quando perceber algo que não dá resultado.</li>
       </ol>
       <p class="frase-insp">"O segredo é controlar o dinheiro, nunca ser controlado por ele." — Rockefeller</p>
+      <button onclick="mostrarTela('calculadora')" class="btn-calc">Acessar Calculadora de Preço</button>
     </section>
   </main>
   <footer>
-    Rolli Shop © 2025 
+    Rolli Shop © 2025 • App inspirado em John D. Rockefeller
   </footer>
   <script src="script.js"></script>
 </body>
 </html>
+
 
