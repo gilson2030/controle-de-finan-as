@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Rolli Shop • Controle Financeiro</title>
   <link rel="stylesheet" href="style.css">
-  <!-- Firebase & ApexCharts CDN -->
   <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
@@ -17,7 +16,7 @@
     <nav>
       <button onclick="mostrarTela('dashboard')">Resumo</button>
       <button onclick="mostrarTela('transacoes')">Transações</button>
-      <button onclick="mostrarTela('dicas')">Dicas</button>
+      <button onclick="mostrarTela('calculadora')">Calculadora</button>
     </nav>
   </header>
   <main>
@@ -98,27 +97,29 @@
     <section id="calculadora" class="tela" style="display:none">
       <h2>Calculadora de Preço de Venda</h2>
       <form id="formCalc">
-        <input type="number" id="calcCusto" placeholder="Custo do produto (R$)" step="0.01" required>
-        <input type="number" id="calcImposto" placeholder="Imposto (%)" step="0.01">
-        <input type="number" id="calcTaxa" placeholder="Taxa Marketplace (%)" step="0.01">
-        <input type="number" id="calcFrete" placeholder="Frete (R$)" step="0.01">
-        <input type="number" id="calcLucro" placeholder="Lucro desejado (%)" step="0.01" required>
-        <button type="submit">Calcular</button>
+        <div class="input-group">
+          <label for="calcCusto">Custo do produto (R$)</label>
+          <input type="number" id="calcCusto" placeholder="Ex: 100.00" step="0.01" min="0" required>
+        </div>
+        <div class="input-group">
+          <label for="calcImposto">Imposto (%)</label>
+          <input type="number" id="calcImposto" placeholder="Ex: 10" step="0.01" min="0">
+        </div>
+        <div class="input-group">
+          <label for="calcTaxa">Taxa Marketplace (%)</label>
+          <input type="number" id="calcTaxa" placeholder="Ex: 12" step="0.01" min="0">
+        </div>
+        <div class="input-group">
+          <label for="calcFrete">Frete (R$)</label>
+          <input type="number" id="calcFrete" placeholder="Ex: 20.00" step="0.01" min="0">
+        </div>
+        <div class="input-group">
+          <label for="calcLucro">Lucro desejado (%)</label>
+          <input type="number" id="calcLucro" placeholder="Ex: 30" step="0.01" min="0" required>
+        </div>
+        <button type="submit" class="btn-calc">Calcular Preço de Venda</button>
       </form>
       <div id="resultadoCalc" class="resultado-calc"></div>
-    </section>
-    <!-- DICAS -->
-    <section id="dicas" class="tela" style="display:none">
-      <h2>Estratégias Rockefeller para sua Loja</h2>
-      <ol class="dicas-lista">
-        <li><b>Controle total das finanças:</b> Registre cada venda e gasto. Analise seu lucro real e não misture dinheiro da loja com despesas pessoais.</li>
-        <li><b>Negocie com fornecedores:</b> Sempre busque preços e condições melhores, comprando em quantidade ou pagando à vista.</li>
-        <li><b>Reinvista em crescimento:</b> Separe parte do lucro para aumentar estoque, divulgar mais e lançar novidades.</li>
-        <li><b>Corte custos sem perder qualidade:</b> Troque embalagens caras por alternativas criativas, elimine produtos parados do estoque.</li>
-        <li><b>Tome decisões baseadas em dados:</b> Veja o que vende mais, ajuste seu foco e mude rápido quando perceber algo que não dá resultado.</li>
-      </ol>
-      <p class="frase-insp">"O segredo é controlar o dinheiro, nunca ser controlado por ele." — Rockefeller</p>
-      <button onclick="mostrarTela('calculadora')" class="btn-calc">Acessar Calculadora de Preço</button>
     </section>
   </main>
   <footer>
