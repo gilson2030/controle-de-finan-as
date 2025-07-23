@@ -95,7 +95,7 @@ h1, h2 {
   margin-bottom: 18px;
   box-shadow: 0 2px 6px #e5d1ff1a;
 }
-#graficoPizza {
+#graficoPizzaResumo {
   max-width: 100%;
   min-height: 300px;
 }
@@ -260,4 +260,5 @@ footer {
     gap: 12px;
   }
 }
+
 
