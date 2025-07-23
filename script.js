@@ -110,12 +110,10 @@ async function atualizarTudo() {
 
 // Gráfico de pizza do resumo
 function atualizarGraficoPizzaResumo(totalVendas, totalCustos, lucroLiquido) {
-  // Remove gráfico antigo, se existir
   if (window.graficoPizzaResumo && window.graficoPizzaResumo.destroy) {
     window.graficoPizzaResumo.destroy();
     window.graficoPizzaResumo = null;
   }
-  // Dados para o resumo
   const options = {
     chart: { type: 'pie', height: 340 },
     series: [
@@ -133,19 +131,39 @@ function atualizarGraficoPizzaResumo(totalVendas, totalCustos, lucroLiquido) {
   }
 }
 
+// CATEGORIA dinâmica (select ou nova)
+const selectCategoria = document.getElementById('categoria');
+const inputNovaCategoria = document.getElementById('categoriaPersonalizada');
+if(selectCategoria && inputNovaCategoria) {
+  selectCategoria.addEventListener('change', function() {
+    if(this.value === 'nova') {
+      inputNovaCategoria.style.display = 'block';
+      inputNovaCategoria.required = true;
+    } else {
+      inputNovaCategoria.style.display = 'none';
+      inputNovaCategoria.required = false;
+    }
+  });
+}
+
 // Formulário transação
 const formTransacao = document.getElementById('formTransacao');
 if (formTransacao) {
   formTransacao.onsubmit = async function (e) {
     e.preventDefault();
     const produto = document.getElementById('produto').value.trim();
-    const categoria = document.getElementById('categoria').value.trim();
+    let categoria = document.getElementById('categoria').value;
+    if (categoria === "nova") {
+      categoria = document.getElementById('categoriaPersonalizada').value.trim();
+    }
     const valor = parseFloat(document.getElementById('valor').value);
     const tipo = document.getElementById('tipo').value;
-    if (!produto || isNaN(valor)) return;
+    if (!produto || !categoria || isNaN(valor)) return;
     await salvarTransacao(produto, categoria, valor, tipo);
     document.getElementById('produto').value = '';
     document.getElementById('categoria').value = '';
+    document.getElementById('categoriaPersonalizada').value = '';
+    document.getElementById('categoriaPersonalizada').style.display = 'none';
     document.getElementById('valor').value = '';
     await atualizarTudo();
   };
@@ -168,11 +186,16 @@ if (formCalc) {
     const taxa = parseFloat(document.getElementById('calcTaxa').value) || 0;
     const frete = parseFloat(document.getElementById('calcFrete').value) || 0;
     const lucro = parseFloat(document.getElementById('calcLucro').value) || 0;
-    let percTotal = (taxa + imposto + lucro) / 100;
-    let preco = (custo + frete) / (1 - percTotal);
-    if (!isFinite(preco) || preco <= 0) preco = 0;
-    document.getElementById('resultadoCalc').innerHTML =
-      `<b>Preço ideal de venda:</b> R$ ${preco.toFixed(2)}`;
+    const percTotal = (taxa + imposto + lucro) / 100;
+    let preco = 0;
+    let mensagem = '';
+    if (percTotal >= 1) {
+      mensagem = `<span style="color:#c10000"><b>Percentual de taxas+imposto+lucro não pode ser igual ou maior que 100%!</b></span>`;
+    } else {
+      preco = (custo + frete) / (1 - percTotal);
+      mensagem = `<b>Preço ideal de venda:</b> R$ ${preco.toFixed(2)}`;
+    }
+    document.getElementById('resultadoCalc').innerHTML = mensagem;
   };
 }
 
