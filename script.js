@@ -21,7 +21,6 @@ window.mostrarTela = function(tela) {
 
 // Filtros
 let listaTransacoes = [];
-let graficoPizza = null;
 let filtros = {
   dataInicio: null,
   dataFim: null,
@@ -98,39 +97,39 @@ async function atualizarTudo() {
     });
   }
 
+  const lucroLiquido = totalVendas - totalCustos;
   if (document.getElementById('lucroLiquido'))
-    document.getElementById('lucroLiquido').textContent = 'R$ ' + (totalVendas - totalCustos).toFixed(2);
+    document.getElementById('lucroLiquido').textContent = 'R$ ' + lucroLiquido.toFixed(2);
   if (document.getElementById('totalVendas'))
     document.getElementById('totalVendas').textContent = 'R$ ' + totalVendas.toFixed(2);
   if (document.getElementById('totalCustos'))
     document.getElementById('totalCustos').textContent = 'R$ ' + totalCustos.toFixed(2);
 
-  atualizarGraficoPizza();
+  atualizarGraficoPizzaResumo(totalVendas, totalCustos, lucroLiquido);
 }
 
-function atualizarGraficoPizza() {
-  if (graficoPizza && graficoPizza.destroy) {
-    graficoPizza.destroy();
-    graficoPizza = null;
+// Gráfico de pizza do resumo
+function atualizarGraficoPizzaResumo(totalVendas, totalCustos, lucroLiquido) {
+  // Remove gráfico antigo, se existir
+  if (window.graficoPizzaResumo && window.graficoPizzaResumo.destroy) {
+    window.graficoPizzaResumo.destroy();
+    window.graficoPizzaResumo = null;
   }
-  const vendasPorProduto = {};
-  listaTransacoes.forEach(t => {
-    if (t.tipo === 'venda') {
-      vendasPorProduto[t.produto] = (vendasPorProduto[t.produto] || 0) + t.valor;
-    }
-  });
-  const labels = Object.keys(vendasPorProduto);
-  const data = labels.map(p => vendasPorProduto[p]);
+  // Dados para o resumo
   const options = {
     chart: { type: 'pie', height: 340 },
-    series: data,
-    labels: labels,
-    colors: ['#7c39e6', '#ffc233', '#f76c6c', '#59c3c3', '#fca311', '#4ea8de', '#a259e6'],
+    series: [
+      Math.max(0, lucroLiquido),
+      Math.max(0, totalVendas),
+      Math.max(0, totalCustos)
+    ],
+    labels: ['Lucro Líquido', 'Total de Vendas', 'Total de Custos'],
+    colors: ['#7c39e6', '#ffc233', '#f76c6c'],
     legend: { position: 'bottom' }
   };
-  if (document.getElementById('graficoPizza')) {
-    graficoPizza = new ApexCharts(document.getElementById('graficoPizza'), options);
-    graficoPizza.render();
+  if (document.getElementById('graficoPizzaResumo')) {
+    window.graficoPizzaResumo = new ApexCharts(document.getElementById('graficoPizzaResumo'), options);
+    window.graficoPizzaResumo.render();
   }
 }
 
