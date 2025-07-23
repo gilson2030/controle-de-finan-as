@@ -37,7 +37,26 @@
           <span id="totalCustos">R$ 0,00</span>
         </div>
       </div>
-      <!-- FILTROS -->
+      <!-- Gráfico de Pizza com resumo -->
+      <div class="grafico-box">
+        <h4>Resumo Gráfico</h4>
+        <div id="graficoPizzaResumo"></div>
+      </div>
+    </section>
+    <!-- TRANSAÇÕES -->
+    <section id="transacoes" class="tela" style="display:none">
+      <h2>Nova Transação</h2>
+      <form id="formTransacao">
+        <input type="text" id="produto" placeholder="Produto/Despesa" required>
+        <input type="text" id="categoria" placeholder="Categoria (opcional)">
+        <input type="number" id="valor" placeholder="Valor (R$)" required step="0.01">
+        <select id="tipo">
+          <option value="venda">Venda</option>
+          <option value="despesa">Despesa</option>
+        </select>
+        <button type="submit">Adicionar</button>
+      </form>
+      <!-- Filtros só aqui! -->
       <div class="filtros-box">
         <h4>Filtrar por:</h4>
         <label>
@@ -56,28 +75,9 @@
           Categoria:
           <input type="text" id="filtroCategoria" placeholder="Ex: acessórios">
         </label>
-        <button onclick="aplicarFiltros()">Aplicar Filtros</button>
-        <button onclick="limparFiltros()" class="limpar">Limpar</button>
+        <button type="button" onclick="aplicarFiltros()">Aplicar Filtros</button>
+        <button type="button" onclick="limparFiltros()" class="limpar">Limpar</button>
       </div>
-      <!-- Gráfico de Pizza -->
-      <div class="grafico-box">
-        <h4>Distribuição de Vendas por Produto</h4>
-        <div id="graficoPizza"></div>
-      </div>
-    </section>
-    <!-- TRANSAÇÕES -->
-    <section id="transacoes" class="tela" style="display:none">
-      <h2>Nova Transação</h2>
-      <form id="formTransacao">
-        <input type="text" id="produto" placeholder="Produto/Despesa" required>
-        <input type="text" id="categoria" placeholder="Categoria (opcional)">
-        <input type="number" id="valor" placeholder="Valor (R$)" required step="0.01">
-        <select id="tipo">
-          <option value="venda">Venda</option>
-          <option value="despesa">Despesa</option>
-        </select>
-        <button type="submit">Adicionar</button>
-      </form>
       <h3>Histórico</h3>
       <table id="tabelaTransacoes">
         <thead>
