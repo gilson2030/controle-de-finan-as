@@ -102,7 +102,7 @@ h1, h2 {
 
 /* FILTROS-BONITOS */
 .filtros-box {
-  background: var(--cinza2);
+  background: #fff;
   border-radius: 16px;
   padding: 22px 18px 18px 18px;
   margin-bottom: 22px;
