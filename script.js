@@ -186,14 +186,25 @@ if (formCalc) {
     const taxa = parseFloat(document.getElementById('calcTaxa').value) || 0;
     const frete = parseFloat(document.getElementById('calcFrete').value) || 0;
     const lucro = parseFloat(document.getElementById('calcLucro').value) || 0;
-    const percTotal = (taxa + imposto + lucro) / 100;
+
+    // Apenas CUSTO e LUCRO são obrigatórios
+    if (!custo || !lucro) {
+      document.getElementById('resultadoCalc').innerHTML = `<span style="color:#c10000"><b>Preencha o custo do produto e o lucro desejado.</b></span>`;
+      return;
+    }
+
+    const custoTotal = custo + frete;
+    const percTaxaImposto = (taxa + imposto) / 100;
+    const percLucro = lucro / 100;
+
     let preco = 0;
     let mensagem = '';
-    if (percTotal >= 1) {
-      mensagem = `<span style="color:#c10000"><b>Percentual de taxas+imposto+lucro não pode ser igual ou maior que 100%!</b></span>`;
+
+    if (percTaxaImposto >= 1) {
+      mensagem = `<span style="color:#c10000"><b>Percentual de taxas+imposto não pode ser igual ou maior que 100%!</b></span>`;
     } else {
-      preco = (custo + frete) / (1 - percTotal);
-      mensagem = `<b>Preço ideal de venda:</b> R$ ${preco.toFixed(2)}`;
+      preco = (custoTotal * (1 + percLucro)) / (1 - percTaxaImposto);
+      mensagem = `<b>Preço ideal de venda:</b> R$ ${preco.toFixed(2)}<br><small style="color:#777;">(Lucro sobre o custo: ${lucro}% )</small>`;
     }
     document.getElementById('resultadoCalc').innerHTML = mensagem;
   };
