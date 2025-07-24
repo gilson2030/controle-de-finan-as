@@ -442,5 +442,29 @@ footer {
     font-size: 0.88em;
   }
 }
+@media (max-width: 700px) {
+  .filtros-box {
+    align-items: flex-start !important;
+    padding-left: 0 !important;
+    padding-right: 8vw !important;  /* Espaço só à direita */
+    box-sizing: border-box !important;
+  }
+  .filtros-box input[type="text"], .filtros-box input[type="date"] {
+    width: 92vw !important;        /* Faz o campo "colar" na esquerda */
+    max-width: 440px;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+  .filtros-box button {
+    width: 92vw !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    text-align: left !important;
+  }
+  .filtros-box h4, .filtros-box label {
+    text-align: left !important;
+    margin-left: 0 !important;
+  }
+}
 
 
