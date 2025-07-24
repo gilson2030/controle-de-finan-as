@@ -308,63 +308,38 @@ footer {
     border-radius: 0 !important;
     box-shadow: none !important;
     margin: 0 !important;
-    padding: 0 !important;
+    padding: 0 5vw !important;    /* Adiciona margem lateral/respiro! */
     box-sizing: border-box !important;
   }
   .painel,
   .grafico-box,
-  .filtros-box,
-  form#formTransacao,
-  #tabelaTransacoes,
   #formCalc {
-    border-radius: 0 !important;
-    max-width: 100vw !important;
-    width: 100vw !important;
-    margin-left: 0 !important;
-    margin-right: 0 !important;
+    border-radius: 10px !important;
+    max-width: 100%;
+    width: 100%;
+    margin: 0 0 18px 0 !important;
     box-sizing: border-box !important;
     padding-left: 0 !important;
     padding-right: 0 !important;
-  }
-  .tela, section, .input-group {
-    width: 100vw !important;
-    max-width: 100vw !important;
-    margin-left: 0 !important;
-    margin-right: 0 !important;
-    padding-left: 0 !important;
-    padding-right: 0 !important;
-    box-sizing: border-box !important;
-  }
-  h2, h3, .painel h3 {
-    text-align: center;
-    font-size: 1.15em;
-    margin-bottom: 8px;
-  }
-  .painel {
-    flex-direction: column;
-    gap: 10px;
-  }
-  .painel div {
-    font-size: 0.98em;
-    padding: 10px 6px;
-  }
-  .grafico-box {
-    padding: 10px 4px;
   }
   .filtros-box {
     flex-direction: column;
     gap: 7px;
-    padding: 13px 2vw 11px 2vw;
+    padding: 13px 4vw 11px 4vw;     /* Mantém respiro interno */
     min-width: 0;
     border-radius: 13px;
-    box-shadow: 0 3px 18px #a481ff10;
-    margin-left: 0;
-    margin-right: 0;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
     margin-bottom: 19px;
+    max-width: 500px;
+    margin: 0 auto 19px auto !important; /* Centraliza o filtro no mobile */
+    box-shadow: 0 3px 18px #a481ff10;
   }
-  .filtros-box label {
+  .filtros-box label, .filtros-box h4 {
     min-width: unset;
     font-size: 0.97em;
+    text-align: left !important;    /* Alinha textos à esquerda */
+    margin-left: 0;
   }
   .filtros-box input[type="text"], .filtros-box input[type="date"] {
     font-size: 1em;
@@ -411,6 +386,7 @@ footer {
     overflow-x: auto;
     white-space: nowrap;
     margin-bottom: 19px;
+    max-width: 100vw !important;
   }
   #tabelaTransacoes th, #tabelaTransacoes td {
     padding: 7px 7px;
@@ -438,8 +414,29 @@ footer {
     padding: 13px 7px;
     border-radius: 8px;
   }
+  h2, h3, .painel h3 {
+    text-align: center;
+    font-size: 1.15em;
+    margin-bottom: 8px;
+  }
+  nav {
+    flex-wrap: nowrap !important;
+    gap: 10px !important;
+  }
+  nav button {
+    min-width: 0 !important;
+    width: 32vw !important;
+    font-size: 1.05em !important;
+    padding: 10px 0 !important;
+  }
 }
 @media (max-width: 450px) {
+  main {
+    padding: 0 2vw !important; /* Um pouco menor em celulares mini */
+  }
+  .filtros-box {
+    padding: 13px 2vw 11px 2vw;
+  }
   #tabelaTransacoes {
     font-size: 0.88em;
   }
