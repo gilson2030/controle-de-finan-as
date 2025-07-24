@@ -466,5 +466,34 @@ footer {
     margin-left: 0 !important;
   }
 }
+@media (max-width: 700px) {
+  .filtros-box {
+    align-items: flex-start !important;
+    padding: 16px 4vw 12px 4vw !important;
+    box-sizing: border-box !important;
+  }
+  .filtros-box label {
+    width: 100%;
+    text-align: left !important;
+    margin-left: 0 !important;
+  }
+  .filtros-box input[type="text"], .filtros-box input[type="date"] {
+    width: 68vw !important;       /* 68% da tela, ajuste para o gosto! */
+    max-width: 340px;
+    min-width: 170px;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    display: block;
+    box-sizing: border-box;
+  }
+  .filtros-box button {
+    width: 100% !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    margin-top: 13px;
+    border-radius: 8px;
+    font-size: 1.07em;
+  }
+}
 
 
