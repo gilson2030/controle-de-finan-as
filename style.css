@@ -495,5 +495,14 @@ footer {
     font-size: 1.07em;
   }
 }
+@media (max-width: 700px) {
+  .filtros-box button {
+    text-align: center !important;
+    justify-content: center !important;
+    align-items: center !important;
+    display: flex !important;
+    font-weight: bold;
+  }
+}
 
 
