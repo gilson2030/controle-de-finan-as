@@ -5,20 +5,12 @@
   --cinza2: #f0e8dd;
   --texto: #232020;
 }
-
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-
 body {
   margin: 0;
   font-family: 'Segoe UI', Arial, sans-serif;
   background: var(--amarelo);
   color: var(--texto);
 }
-
 header {
   background: var(--roxo);
   color: #fff;
@@ -26,7 +18,6 @@ header {
   text-align: center;
   border-bottom: 4px solid var(--amarelo);
 }
-
 .logo {
   max-width: 60px;
   margin-bottom: 10px;
@@ -35,7 +26,6 @@ header {
   border: 4px solid var(--amarelo);
   background: var(--amarelo);
 }
-
 nav {
   margin-top: 10px;
   display: flex;
@@ -43,7 +33,6 @@ nav {
   gap: 20px;
   flex-wrap: nowrap;
 }
-
 nav button {
   background: var(--amarelo);
   color: var(--roxo);
@@ -58,11 +47,9 @@ nav button {
   box-shadow: 0 2px 8px #0001;
   white-space: nowrap;
 }
-
 nav button:hover, .btn-calc:hover {
   background: #ffe688;
 }
-
 main {
   max-width: 540px;
   margin: 30px auto 10px;
@@ -70,18 +57,14 @@ main {
   border-radius: 16px;
   padding: 32px 20px;
   box-shadow: 0 3px 18px #a481ff15;
-  min-height: 80vh;
 }
-
 h1, h2 {
   margin-top: 0;
   font-weight: 700;
 }
-
 .tela {
   width: 100%;
 }
-
 .painel {
   display: flex;
   gap: 18px;
@@ -89,7 +72,6 @@ h1, h2 {
   justify-content: space-between;
   flex-wrap: wrap;
 }
-
 .painel div {
   flex: 1;
   background: var(--cinza2);
@@ -98,17 +80,14 @@ h1, h2 {
   box-shadow: 0 2px 6px #e5d1ff22;
   text-align: center;
 }
-
 .painel h3 {
   font-size: 1.1em;
   margin: 0 0 8px 0;
 }
-
 .painel span {
   font-size: 1.4em;
   font-weight: bold;
 }
-
 .grafico-box {
   background: var(--cinza2);
   border-radius: 10px;
@@ -116,7 +95,6 @@ h1, h2 {
   margin-bottom: 18px;
   box-shadow: 0 2px 6px #e5d1ff1a;
 }
-
 #graficoPizzaResumo {
   max-width: 100%;
   min-height: 300px;
@@ -134,20 +112,14 @@ h1, h2 {
   align-items: flex-end;
   box-shadow: 0 2px 10px #7c39e61a;
   border: 2px solid #ece1ff;
-  max-width: 520px;
-  margin-left: auto;
-  margin-right: auto;
 }
-
 .filtros-box h4 {
   flex-basis: 100%;
   margin-bottom: 7px;
   font-size: 1.13em;
   color: var(--roxo);
   font-weight: 700;
-  text-align: left;
 }
-
 .filtros-box label {
   display: flex;
   flex-direction: column;
@@ -157,9 +129,7 @@ h1, h2 {
   min-width: 160px;
   font-weight: 500;
   letter-spacing: 0.01em;
-  text-align: left;
 }
-
 .filtros-box input[type="text"],
 .filtros-box input[type="date"] {
   padding: 10px 12px;
@@ -175,13 +145,11 @@ h1, h2 {
   min-width: 0;
   letter-spacing: 0.02em;
 }
-
 .filtros-box input[type="text"]:focus,
 .filtros-box input[type="date"]:focus {
   border-color: #a481ff;
   box-shadow: 0 0 8px #7c39e655;
 }
-
 .filtros-box button {
   margin-top: 22px;
   padding: 11px 23px;
@@ -196,23 +164,19 @@ h1, h2 {
   letter-spacing: 0.02em;
   transition: background 0.18s, transform 0.12s;
 }
-
 .filtros-box button:active {
   transform: scale(0.97);
 }
-
 .filtros-box button.limpar {
   background: #b1b1b1;
   color: #fff;
 }
-
 form#formTransacao {
   display: flex;
   gap: 8px;
   margin-bottom: 22px;
   flex-wrap: wrap;
 }
-
 form#formTransacao input,
 form#formTransacao select,
 form#formTransacao button {
@@ -221,7 +185,6 @@ form#formTransacao button {
   border: 1px solid var(--roxo);
   font-size: 1em;
 }
-
 form#formTransacao button {
   background: var(--roxo);
   color: #fff;
@@ -230,11 +193,9 @@ form#formTransacao button {
   cursor: pointer;
   transition: background 0.2s;
 }
-
 form#formTransacao button:hover {
   background: #a481ff;
 }
-
 #tabelaTransacoes {
   width: 100%;
   border-collapse: collapse;
@@ -243,23 +204,19 @@ form#formTransacao button:hover {
   box-shadow: 0 1px 6px #e5d1ff11;
   margin-bottom: 24px;
 }
-
 #tabelaTransacoes th, #tabelaTransacoes td {
   padding: 8px 5px;
   text-align: left;
   border-bottom: 1px solid #e5d1ff33;
 }
-
 #tabelaTransacoes th {
   background: var(--roxo);
   color: #fff;
   font-weight: 600;
 }
-
 #tabelaTransacoes td:last-child {
   text-align: center;
 }
-
 #tabelaTransacoes button {
   background: #ff8080;
   border: none;
@@ -269,7 +226,6 @@ form#formTransacao button:hover {
   font-size: 1em;
   cursor: pointer;
 }
-
 .input-group {
   display: flex;
   flex-direction: column;
@@ -334,7 +290,7 @@ footer {
   border-top: 2px solid var(--roxo);
 }
 
-/* MOBILE AJUSTADO */
+/* RESPONSIVIDADE AJUSTADA */
 @media (max-width: 700px) {
   html, body {
     width: 100vw !important;
@@ -352,7 +308,7 @@ footer {
     border-radius: 0 !important;
     box-shadow: none !important;
     margin: 0 !important;
-    padding: 16px 5vw 16px 5vw !important;  /* Espaçamento lateral */
+    padding: 0 5vw !important;    /* Adiciona margem lateral/respiro */
     box-sizing: border-box !important;
   }
   .painel,
@@ -372,11 +328,13 @@ footer {
     padding: 13px 4vw 11px 4vw;
     min-width: 0;
     border-radius: 13px;
-    margin-left: auto !important;
-    margin-right: auto !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
     margin-bottom: 19px;
-    max-width: 480px;
+    max-width: 500px;
+    /* margin: 0 auto 19px auto !important; <-- removido para alinhar à esquerda */
     box-shadow: 0 3px 18px #a481ff10;
+    align-items: flex-start !important;  /* Alinha à esquerda */
   }
   .filtros-box label, .filtros-box h4 {
     min-width: unset;
@@ -473,14 +431,12 @@ footer {
     padding: 10px 0 !important;
   }
 }
-
 @media (max-width: 450px) {
   main {
-    padding: 0 2vw !important; /* Um pouco menor em celulares mini */
+    padding: 0 2vw !important;
   }
   .filtros-box {
     padding: 13px 2vw 11px 2vw;
-    max-width: 98vw;
   }
   #tabelaTransacoes {
     font-size: 0.88em;
